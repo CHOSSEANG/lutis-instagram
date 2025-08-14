@@ -5,20 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
-    <div id="sidebar">
-        <div class="main-icon">
-            Instagram
+        <div id="sidebar">
+            <div class="main-icon">
+                Instagram
+            </div>
+            <div class="menu-list" style="display:flex; flex-direction:column;">
+                <p>메인</p>
+                <p>탐색</p>
+                <p>메세지</p>
+                <p>프로필</p>
+            </div>
         </div>
-        <div class="menu-list" style="display:flex; flex-direction:column;">
-            <p>메인</p>
-            <p>탐색</p>
-            <p>메세지</p>
-            <p>프로필</p>
-        </div>
-    </div>
-    <div></div>
+
+        <main>
+            <div class="Explore-box">
+                <div class="Explore-padding"></div>
+                
+                <!--
+                <div class="Explore">
+                        <div class="Explore-item">
+                            <div class="overlay">
+                                <i class="fa-solid fa-heart"></i>
+                                <span class="like">4109</span>
+                                <i class="fa-solid fa-comment"></i>
+                                <span class="commit">62</span>
+                            </div>   
+                        </div>
+                        
+                        <div class="Explore-item"></div>
+                        <div class="Explore-item"></div>
+                        <div class="Explore-item"></div>
+                        <div class="Explore-item"></div>
+                        <div class="Explore-item"></div>
+                    </div>
+                -->
+                <div id="postModal" class="modal">
+                    <div class="modalBox">
+                        <div class="modalMedia">
+
+                        </div>
+                        <div class="modalContent">
+                            <div class="modalText content">
+                                <div class="introduce">
+                                    <div class="introduce-icon">
+                                        <img class="profile" src="../image/image.png">
+                                    </div>
+                                    <div class="introduce-text"><span class="nickName"><span>• 팔로우</span></span></div>
+                                    <div class="option-logo"></div>
+                                </div>
+                                <div class="commentBox">
+
+                                </div>
+                            </div>
+                            <div class="modalComent interaction">상호작용</div>
+
+                        </div>
+                    </div>
+                    <div class="modalCloseBtnBox">
+                        <button id="modalCloseBtn">닫기</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </main>
     <script src="script.js"></script>
-</body>
+    </body>
 </html>
