@@ -2,111 +2,130 @@ const rand = function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+const postStore = new Map();
+
 // 나머지 makeUser, makeComment, makePost ...
 
 
 
 // 랜덤 explore 생성 함수
 const exploreBox = document.querySelector(`.Explore-box`);
-
 function createImageItem() {
-    const explore = document.createElement('div');
-    explore.className = `Explore`;
+  const explore = document.createElement('div');
+  explore.className = `Explore`;
+  
+  for (let i = 0; i < 6; i++) {
+    const post = makePost();
+
+    // ✅ 포스트 저장
+    postStore.set(post.id, post);
     
-    for (let i = 0; i < 6; i++) {
-        const post = makePost();
-        
-        const item = document.createElement('div');
-        let random = Math.floor(Math.random() * 30);
-        item.className = 'Explore-item';
-        item.style.width = '320px';
-        item.style.height = '320px';
-        item.style.backgroundSize = 'cover';
-        item.style.backgroundPosition = 'center';
-        item.style.position = `relative`;
-            item.style.backgroundImage = `url(${post.media[0].url})`;
+    const item = document.createElement('div');
+    item.className = 'Explore-item';
+    item.style.width = '320px';
+    item.style.height = '320px';
+    item.style.backgroundSize = 'cover';
+    item.style.backgroundPosition = 'center';
+    item.style.position = `relative`;
+    item.style.backgroundImage = `url(${post.media[0].url})`;
 
-        item.dataset.img = post.media[0].url;
-        item.dataset.title = post.caption;
-        item.dataset.likes = String(post.reactions.likes);
-        item.dataset.comments = String(post.commentsCount);
+    item.dataset.postId    = post.id;
+    item.dataset.img       = post.media[0].url;
+    item.dataset.title     = post.caption;                 
+    item.dataset.likes     = String(post.reactions.likes);
+    item.dataset.comments  = String(post.commentsCount);
+    item.dataset.username  = post.author.username;
+    item.dataset.likeCount = post.reactions.likes;
+    item.dataset.avatar    = post.author.avatarUrl;
 
-
-        explore.appendChild(item);
-        
-        const overlay = document.createElement('div');
-        overlay.className = 'overlay';
-
-        const heartIcon = document.createElement('i');
-        heartIcon.className = 'fa-solid fa-heart';
-        const likeCount = document.createElement('span');
-        likeCount.className = 'like';
-
-        likeCount.textContent = Math.floor(Math.random() * 5000); // 랜덤 좋아요 수
-        const commentIcon = document.createElement('i');
-        commentIcon.className = 'fa-solid fa-comment';
-
-        const commentCount = document.createElement('span');
-        commentCount.className = 'commit';
-        commentCount.textContent = Math.floor(Math.random() * 200); // 랜덤 댓글 수
-        const follower = Math.floor(Math.random() * 10000);
-        const following = Math.floor(Math.random() * 10000);
-
-
-        // overlay에 요소 추가
-        overlay.appendChild(heartIcon);
-        overlay.appendChild(likeCount);
-        overlay.appendChild(commentIcon);
-        overlay.appendChild(commentCount);
-
-        item.appendChild(overlay);
-
-        item.addEventListener(`click`,function(e){
-        this.classList.add('no-overlay');
-
-        console.log("this:"+this);
-        openModal(item); // 모달 여는 함수  
-
-
-
-        
-        });
-
-    }
-
+    explore.appendChild(item);
     
-    exploreBox.appendChild(explore);
-    //explore에 explore item 추가, 그리고 explore를 explore box에 추가
-    
+    // overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+
+    const heartIcon = document.createElement('i');
+    heartIcon.className = 'fa-solid fa-heart';
+
+    const likeCount = document.createElement('span');
+    likeCount.className = 'like';
+    likeCount.textContent = Math.floor(Math.random() * 5000);
+
+    const commentIcon = document.createElement('i');
+    commentIcon.className = 'fa-solid fa-comment';
+
+    const commentCount = document.createElement('span');
+    commentCount.className = 'commit';
+    commentCount.textContent = Math.floor(Math.random() * 200);
+
+    overlay.appendChild(heartIcon);
+    overlay.appendChild(likeCount);
+    overlay.appendChild(commentIcon);
+    overlay.appendChild(commentCount);
+
+    item.appendChild(overlay);
+
+    item.addEventListener('click', function () {
+      this.classList.add('no-overlay');
+      openModal(this);
+    });
+  }
+
+  exploreBox.appendChild(explore);
 }
 
 function openModal(card) {
-    const modal = document.getElementById('postModal');
-    modal.classList.add('is-open');
-    const media = document.querySelector(`.modalMedia`);
-    media.style.backgroundImage = card.style.backgroundImage;
-    media.style.backgroundSize = 'contain';
-    media.style.backgroundPosition = 'center';
-    media.style.backgroundRepeat = "no-repeat";
-    
-    const userNickname = querySelector(`.introduce-text > .nickName`);
-    //userNickname
-    
+  const modal = document.getElementById('postModal');
+  modal.classList.add('is-open');
 
-    // 닫기 버튼 클릭 시 닫히게
-    const modalCloseBtn = document.getElementById('modalCloseBtn');
-    modalCloseBtn.onclick = function() {
-        modal.classList.remove('is-open');
-        card.classList.remove('no-overlay');
-    };
+  const post = postStore.get(card.dataset.postId);
+
+  const media = document.querySelector(`.modalMedia`);
+  media.style.backgroundImage = `url(${post.media[0].url})`;
+  media.style.backgroundSize = 'contain';
+  media.style.backgroundPosition = 'center';
+  media.style.backgroundRepeat = "no-repeat";
+
+  const userNickname = document.querySelector(`.introduce-text > .nickName`);
+  if (userNickname) userNickname.textContent = post.author.username;
+
+  const userLike = document.querySelector(`.modalLike span`);
+  if (userLike) userLike.textContent = String(post.reactions.likes);
+
+  const commentBox = document.querySelector('.commentBox');
+  if (commentBox) {
+    commentBox.innerHTML = '';
+
+    commentBox.appendChild(
+      makeUserBoxDom(post.author.username, post.caption, post.author.avatarUrl)
+    );
+
+    for (const c of post.comments) {
+      commentBox.appendChild(
+        makeUserBoxDom(c.user.username, c.text, c.user.avatarUrl)
+      );
+      if (c.replies) {
+        for (const r of c.replies) {
+          const repl = makeUserBoxDom(r.user.username, r.text, r.user.avatarUrl);
+          commentBox.appendChild(repl);
+        }
+      }
+    }
+  }
+
+  // 닫기
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  modalCloseBtn.onclick = function() {
+    modal.classList.remove('is-open');
+    card.classList.remove('no-overlay');
+  };
 }
 
 
 
 
-modalCloseBtn.addEventListener('click', () => {
-                this.classList.remove('no-overlay');
-            });
+
+
 
 
 
@@ -251,9 +270,14 @@ function makePost() {
   return {
     id: id("post"),
     author,
-    caption: ["오늘도 작업!", "테스트 포스트", "샘플 캡션입니다"][rand(0,2)],
+    caption: [
+    "✅실시간 소식 @cityano\n@maylongallery\n\n📸 : lol\n\n✅가장 빠른 트렌드는?➡️ @1mintrend 팔로우 + 즐찾!\n\n✅1분트렌드➡️ @1mintrend\n✅1분지식 ➡️ @1mknow\n✅자동차 정보는? ➡️ @motorsjason\n✅마일론 방향제 ➡️ @maylongallery\n✅시티아노 텀블러 ➡️ @cityano\n\n#유머 #이슈",
+    "두 번째 예시 캡션\n줄바꿈도 자유롭게 가능\n이모지도 가능 😎",
+    "세 번째 캡션입니다!\n이것도 줄바꿈이 여러 개 들어가요."
+    ][Math.floor(Math.random() * 3)],
+
     createdAt: new Date().toISOString(),
-    media,
+    media, 
     reactions: { likes: rand(0, 20000), bookmarks: rand(0, 2000) },
     commentsCount: rand(0, 300),
     comments,
@@ -267,3 +291,60 @@ function makePost() {
 //테스트
 createImageItem();
 createImageItem();
+
+
+
+
+
+
+// 댓글 랜덤 생성함수 GPT로 간단하게 뽑음
+// ===== 랜덤 유틸 =====
+const r = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const randName = () => `user_${r(1, 9999)}`;
+const randAvatar = () => `https://picsum.photos/40?random=${r(1, 10000)}`;
+const randCaption = () => ([
+`✅실시간 소식 @cityano
+@maylongallery
+
+📸 : lol`,
+"그냥 테스트 댓글입니다 😎",
+`두 줄 테스트
+줄바꿈 유지 확인`,
+"이모지 👍🔥❤️ 테스트",
+])[r(0, 3)];
+
+// ===== user-box DOM 생성 =====
+function makeUserBoxDom(username, text, avatarUrl = '../image/image.png') {
+  const box = document.createElement('div');
+  box.className = 'user-box';
+  box.innerHTML = `
+    <div class="user-post">
+      <img class="user-image" src="${avatarUrl}" alt="user"
+           style="width:40px;height:40px;border-radius:50%;object-fit:cover;">
+      <div class="user-caption">
+        <span class="nickName"></span>
+        <p class="comment-text"></p>
+      </div>
+    </div>
+  `;
+  box.querySelector('.nickName').textContent = username || '';
+  box.querySelector('.comment-text').textContent = text || '';
+  return box;
+}
+
+
+
+// ===== .commentBox에 랜덤 추가 =====
+function appendRandomUserBox(parent = document.querySelector('.commentBox')) {
+  const node = makeUserBoxDom(randName(), randCaption(), randAvatar());
+  parent.appendChild(node);     // 최신이 위로 오게 하려면 .prepend(node)
+}
+
+// 여러 개 한 번에
+function appendRandomMany(n = 5, parent = document.querySelector('.commentBox')) {
+  const frag = document.createDocumentFragment();
+  for (let i = 0; i < n; i++) {
+    frag.appendChild(makeUserBoxDom(randName(), randCaption(), randAvatar()));
+  }
+  parent.appendChild(frag);
+}
