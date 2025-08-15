@@ -40,3 +40,44 @@
     width: 100%;
     border:1px solid lightgray;
 }
+
+#message-sidebar{
+
+}
+
+#message-sidebar > div{
+    border: 1px solid lightgray;
+    padding: 1em;
+}
+
+#memos {
+    width:100%;
+    height:6.5em;
+    display:flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+#memos > #memo {
+    width:20%;
+    display:flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+#memos > #memo > p{
+    font-size: small;
+    margin-left:6px;
+    box-sizing: border-box;
+}
+
+#message-list{
+
+}
+
+#my-image{
+    width:50px;
+    height:50px; 
+    border-radius: 50%;
+}
