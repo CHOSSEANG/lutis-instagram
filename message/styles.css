@@ -26,6 +26,8 @@
     width: 100%;
 }
 
+
+
 #message-list{
     position: relative;
     top:0;
@@ -41,13 +43,14 @@
     border:1px solid lightgray;
 }
 
-#message-sidebar{
-
-}
-
 #message-sidebar > div{
     border: 1px solid lightgray;
     padding: 1em;
+}
+
+#current-account >p{
+    font-weight: bold;
+    font-size:medium;
 }
 
 #memos {
@@ -72,12 +75,21 @@
     box-sizing: border-box;
 }
 
-#message-list{
+#search-box{
+    display:flex;
+    border:1px solid lightgray;
+    padding: 6px;
+    border-radius:5px;
+}
 
+#search-input{
+    border:0px;
+    color:lightgray;
 }
 
 #my-image{
     width:50px;
     height:50px; 
     border-radius: 50%;
+    border:2px solid lightgray;
 }
