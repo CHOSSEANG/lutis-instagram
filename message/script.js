@@ -11,7 +11,10 @@ function createMessageList(num){
         const textContentEl = document.createElement('p');
 
         // 메세지 div에 유저 이미지 요소 추가
+        imgEl.src="https://picsum.photos/50/50/?random="+(i+1);
+        imgEl.classList.add('user-image');
         messageEl.append(imgEl);
+        
         
         // 메세지 div에 텍스트 요소 추가
         textEl.append(textUserEl);
