@@ -26,14 +26,24 @@
     width: 100%;
 }
 
+#message-sidebar > div{
+    border: 1px solid lightgray;
+    padding: 1em 5px;
+}
 
-
-#message-list{
+#message-sidebar > div:last-child{
+    border: 0px;
+    padding: 5px 1em;
     position: relative;
     top:0;
     height:100%;
     width: 20em;
-    border:1px solid lightgray;
+}
+
+#message-list-header{
+    padding: 2px 1em; 
+    font-size: medium; 
+    font-weight: bold;
 }
 
 #message-content{
@@ -41,11 +51,6 @@
     height:100%;
     width: 100%;
     border:1px solid lightgray;
-}
-
-#message-sidebar > div{
-    border: 1px solid lightgray;
-    padding: 1em;
 }
 
 #current-account >p{
