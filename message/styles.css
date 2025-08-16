@@ -105,3 +105,33 @@
     border-radius: 50%;
     border:2px solid lightgray;
 }
+
+.message-box{
+    display:flex;
+    height: 4em;
+    justify-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.message-box-text{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left:2em; 
+}
+
+
+.message-box-text > p{
+    height: 30%;
+    margin: 0;
+}
+
+.message-box-text > p:first-child{
+    font-weight: bold;
+}
+
+.message-box-text > p:last-child{
+    font-size: small;
+    color: #999999;
+}

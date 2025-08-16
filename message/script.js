@@ -21,7 +21,9 @@ function createMessageList(num){
         textEl.append(textContentEl);
         textUserEl.innerText='User_' + i;
         textContentEl.innerText='Content_' + i;
+        textEl.classList.add('message-box-text');
         messageEl.append(textEl);
+        messageEl.classList.add('message-box');
 
         // 메세지 list에 메세지 div 추가
         msgListEl.append(messageEl);
