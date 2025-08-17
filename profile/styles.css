@@ -42,6 +42,39 @@
 
 #content-container > div{
     display:flex;
+    vertical-align: middle;
+}
+
+#content-container > div > button{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top:0.7em;
+    height:fit-content;
+    padding: 0.5em 0.7em;
+    border: 1px solid #F0F0F0;
+    background-color: #F0F0F0;
+    border-radius: 10%;
+    font-weight: 600;
+}
+#content-container > div > p {
+    font-weight: bold;
+}
+#content-container > div > span {
+    margin-top:0.5em;
+}
+
+#follower-container {
+    display:flex;
+}
+
+#follower-container > h5{
+    color:#999999;
+    margin-right: 0.5em;
+}
+
+#follower-container > p{
+    margin-top: 1.3em;
+    margin-right: 4em;
 }
 
 #content-container > div:nth-child(2),
