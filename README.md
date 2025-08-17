@@ -1,5 +1,5 @@
 
-createImageItem();
-게시물 추가 함수
-appendRandomUserBox();
-댓글 추가 함수
+createImageItem();<br>
+게시물 추가 함수<br>
+appendRandomUserBox();<br>
+댓글 추가 함수<br>
