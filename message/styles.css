@@ -122,7 +122,7 @@
 }
 
 
-.message-box-text > p{
+.message-box-text > p {
     height: 30%;
     margin: 0;
 }
@@ -134,4 +134,13 @@
 .message-box-text > p:last-child{
     font-size: small;
     color: #999999;
+}
+
+#message-content{
+    position: relative;
+
+}
+
+#message-content-header{
+    padding:0.5em 1.5em;
 }
