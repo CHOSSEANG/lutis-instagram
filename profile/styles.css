@@ -16,3 +16,23 @@
 .menu-list {
     margin-left: 20px;
 }
+
+#profile-content{
+    position:relative;
+    left:10em;
+}
+
+#profile-header{
+    display:flex;
+}
+
+#content-container{
+    display:flex;
+    flex-direction: column;
+}
+
+#content-container > div:nth-child(2),
+#content-container> div:nth-child(3){
+    display: flex;
+}
+
