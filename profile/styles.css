@@ -24,11 +24,24 @@
 
 #profile-header{
     display:flex;
+    height:12em;
 }
 
 #content-container{
     display:flex;
     flex-direction: column;
+}
+
+#profile-image{
+    width:150px;
+    height:150px;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    margin:1em;
+}
+
+#content-container > div{
+    display:flex;
 }
 
 #content-container > div:nth-child(2),
