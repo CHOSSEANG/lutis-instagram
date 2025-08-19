@@ -115,11 +115,29 @@ function openModal(card) {
 
   // 닫기
   const modalCloseBtn = document.getElementById('modalCloseBtn');
-  modalCloseBtn.onclick = function() {
+  modalCloseBtn.onclick= function() {
     modal.classList.remove('is-open');
     card.classList.remove('no-overlay');
   };
+
+  document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    modal.classList.remove('is-open');
+    card.classList.remove('no-overlay');
+  }
+});
+
+  const modalBox = document.querySelector(`.modalBox`);
+  document.addEventListener(`click`, function(event){
+    if(modalBox.onclick){
+      modal.classList.remove('is-open');
+      card.classList.remove('no-overlay');
+    }
+  });
+
 }
+
+
 
 
 
