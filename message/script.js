@@ -63,11 +63,17 @@ function createMessageList(num){
             if(msgContentHeaderEl.childElementCount >0){
                 msgContentHeaderEl.lastElementChild.remove();
             }
+            console.log(msgContentBodyEL.children);
             if(dataId==="0"){
                 createMessage(user0MessageArray);
             } else if(dataId==="1"){
                 createMessage(user1MessageArray);
+            } else{
+                while(msgContentBodyEL.firstChild) {
+                    msgContentBodyEL.removeChild(msgContentBodyEL.firstChild);
+                }
             }
+            console.log(msgContentBodyEL.children.length);
             document.getElementById('message-content-header').style.border = '1px solid lightgray';
             msgContentHeaderEl.append(messageEl.cloneNode("deep"));
         })
@@ -79,8 +85,8 @@ function createMessageList(num){
 
 function createMessage(messageArray){
     if(msgContentBodyEL.hasChildNodes()){
-        for(const content of msgContentBodyEL.children){
-            content.remove();
+        while(msgContentBodyEL.firstChild) {
+            msgContentBodyEL.removeChild(msgContentBodyEL.firstChild);
         }
     }
     for(const message of messageArray){
