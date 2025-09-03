@@ -2,7 +2,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 10em;
+    width: 10%;
     height: 100%;
     border: 1px solid lightgray;
 }
@@ -19,11 +19,15 @@
 
 #message{
     position: fixed;
-    left: 10em;
+    left: 10%;
     top: 0;
     display:flex;
     height: 100%;
-    width: 100%;
+    width: 90%;
+}
+
+#message-sidebar {
+    width: 20%;
 }
 
 #message-sidebar > div{
@@ -49,7 +53,7 @@
 #message-content{
     position:relative;
     height:100%;
-    width: 100%;
+    width: 80%;
     border:1px solid lightgray;
 }
 
@@ -138,9 +142,34 @@
 
 #message-content{
     position: relative;
-
+    width: 68vw;
 }
 
 #message-content-header{
     padding:0.5em 1.5em;
+}
+
+#message-content-body{
+    display:flex;
+    flex-direction: column;
+}
+
+.my-message{
+    align-self: end;
+    background-color: lightgray;
+    color: white;
+}
+
+.your-message{
+    align-self: start;
+    background-color: lightblue;
+    color: white;
+}
+
+.common-message{
+    width: fit-content;
+    border: 2px solid lightgray;
+    border-radius: 20%;
+    padding:7px 12px;
+    margin: 7px;
 }

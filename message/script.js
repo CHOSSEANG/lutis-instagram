@@ -1,10 +1,40 @@
 const msgListEl = document.querySelector('#message-list');
 const msgContentHeaderEl = document.querySelector('#message-content-header');
+const msgContentBodyEL = document.querySelector('#message-content-body');
 let userArray = [];
 
-function createMessageList(num){
-    
+// 대화 1: 친구들과의 일상적인 대화
+const user0MessageArray = [
+    { sender: 'me', message: '오늘 날씨 진짜 좋다!' },
+    { sender: 'other', message: '맞아! 산책하기 딱 좋은 날씨야' },
+    { sender: 'me', message: '혹시 시간 되면 같이 한강 갈래?' },
+    { sender: 'other', message: '좋아! 몇 시에 만날까?' },
+    { sender: 'me', message: '3시 정도 어때?' },
+    { sender: 'other', message: '완벽해 👍' },
+    { sender: 'me', message: '그럼 반포한강공원에서 보자!' },
+    { sender: 'other', message: '응응 치킨도 시켜먹자 ㅋㅋ' },
+    { sender: 'me', message: '역시 너야 😂' },
+    { sender: 'other', message: '곧 도착해!' }
+];
 
+// 대화 2: 연인들의 달달한 대화
+const user1MessageArray = [
+    { sender: 'me', message: '오늘 하루 어땠어?' },
+    { sender: 'other', message: '너 생각하느라 집중이 안 됐어 💕' },
+    { sender: 'me', message: '에이~ 그런 소리 하지 마 😊' },
+    { sender: 'other', message: '진짜라니까! 회의 중에도 네 생각만...' },
+    { sender: 'me', message: '나도 마찬가지야 ㅋㅋㅋ' },
+    { sender: 'other', message: '오늘 저녁 뭐 먹을까?' },
+    { sender: 'me', message: '너가 좋아하는 파스타 만들어줄게' },
+    { sender: 'other', message: '와 진짜? 사랑해 ❤️' },
+    { sender: 'me', message: '나도 사랑해 😘' },
+    { sender: 'other', message: '빨리 집에 가고 싶다...' },
+    { sender: 'me', message: '조금만 기다려, 곧 끝나지?' },
+    { sender: 'other', message: '응! 30분 후에 출발할게' }
+];
+
+
+function createMessageList(num){
     for(let i =0;i<num;i++){
         const messageEl = document.createElement('div');
         const imgEl = document.createElement('img');
@@ -33,6 +63,11 @@ function createMessageList(num){
             if(msgContentHeaderEl.childElementCount >0){
                 msgContentHeaderEl.lastElementChild.remove();
             }
+            if(dataId==="0"){
+                createMessage(user0MessageArray);
+            } else if(dataId==="1"){
+                createMessage(user1MessageArray);
+            }
             document.getElementById('message-content-header').style.border = '1px solid lightgray';
             msgContentHeaderEl.append(messageEl.cloneNode("deep"));
         })
@@ -42,4 +77,22 @@ function createMessageList(num){
     }
 }
 
+function createMessage(messageArray){
+    if(msgContentBodyEL.hasChildNodes()){
+        for(const content of msgContentBodyEL.children){
+            content.remove();
+        }
+    }
+    for(const message of messageArray){
+        const messageEL = document.createElement('div');
+        messageEL.classList.add('common-message');
+        messageEL.innerText = message.message;
+        if(message.sender === 'me'){
+            messageEL.classList.add('my-message');
+        } else{
+            messageEL.classList.add('your-message');
+        }
+        msgContentBodyEL.append(messageEL);
+    }
+}
 createMessageList(3);
