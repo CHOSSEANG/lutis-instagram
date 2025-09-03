@@ -156,13 +156,13 @@
 
 .my-message{
     align-self: end;
-    background-color: lightgray;
+    background-color: lightblue;
     color: white;
 }
 
 .your-message{
     align-self: start;
-    background-color: lightblue;
+    background-color: lightgray;
     color: white;
 }
 
