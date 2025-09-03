@@ -19,7 +19,7 @@
 
 #profile-content{
     position:relative;
-    left:10em;
+    left:20em;
 }
 
 #profile-header{
@@ -104,8 +104,8 @@
 #image-handler{
     display:flex;
     width:60%;
-    margin-left: 7em;
     justify-content: center;
+    margin-top:3em;
     border-bottom: 1.5px solid lightgray;
 }
 
@@ -124,7 +124,6 @@
 
 #list-container {
     justify-content: center;
-    margin-left: 7em;
 }
 
 #image-list {
