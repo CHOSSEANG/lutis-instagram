@@ -114,3 +114,21 @@
     color:#000000;
     justify-content:space-evenly;
 }
+
+/*  */
+#image-list {
+    display:flex;
+}
+
+#collection-list {
+    display: flex;
+}
+
+.collection-all-img {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#tagged-list {
+    display: flex;
+}
