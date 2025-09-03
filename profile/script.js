@@ -38,14 +38,14 @@ function createCollectionList(){
     for (let i = 0; i < 3; i++){
         if(i === 0){
             collectionArray.push([
-                {src:`https://picsum.photos/300/400?random=${i+5}`,width:IMAGE_WIDTH/2, height:IMAGE_HEIGHT/2},
-                {src:`https://picsum.photos/300/400?random=${i+6}`,width:IMAGE_WIDTH/2, height:IMAGE_HEIGHT/2},
-                {src:`https://picsum.photos/300/400?random=${i+7}`,width:IMAGE_WIDTH/2, height:IMAGE_HEIGHT/2},
-                {src:`https://picsum.photos/300/400?random=${i+8}`,width:IMAGE_WIDTH/2, height:IMAGE_HEIGHT/2}
+                {src:`https://picsum.photos/150/150?random=${i+5}`,width:COLLECTION_IMAGE_WIDTH/2, height:COLLECTION_IMAGE_HEIGHT/2},
+                {src:`https://picsum.photos/150/150?random=${i+6}`,width:COLLECTION_IMAGE_WIDTH/2, height:COLLECTION_IMAGE_HEIGHT/2},
+                {src:`https://picsum.photos/150/150?random=${i+7}`,width:COLLECTION_IMAGE_WIDTH/2, height:COLLECTION_IMAGE_HEIGHT/2},
+                {src:`https://picsum.photos/150/150?random=${i+8}`,width:COLLECTION_IMAGE_WIDTH/2, height:COLLECTION_IMAGE_HEIGHT/2}
                 ])
         } else {
             collectionArray.push({
-                src:`https://picsum.photos/300/400?random=${i}`,width:IMAGE_WIDTH,height:IMAGE_HEIGHT,
+                src:`https://picsum.photos/300/300?random=${i}`,width:COLLECTION_IMAGE_WIDTH,height:COLLECTION_IMAGE_HEIGHT,
             })
         }
     }
