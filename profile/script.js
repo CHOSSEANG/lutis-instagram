@@ -5,13 +5,17 @@ const taggedArray = [];
 const IMAGE_WIDTH = 310;
 const IMAGE_HEIGHT = 410;
 
+const COLLECTION_IMAGE_WIDTH = 300;
+const COLLECTION_IMAGE_HEIGHT = 300;
+
+
 const imageListEL = document.getElementById('image-list');
 const collectionListEL = document.getElementById('collection-list');
 const taggedListEL = document.getElementById('tagged-list');
 
-createImgList();
-createCollectionList();
-createTaggedList();
+const imageListBtnEl = document.getElementById('image-list-button');
+const collectionListBtnEl = document.getElementById('collection-list-button');
+const taggedListBtnEl = document.getElementById('tagged-list-button');
 
 function createImgList() {
     for (let i = 0; i < 3; i++) {
@@ -83,3 +87,27 @@ function createTaggedList(){
         taggedListEL.append(imgEL);
     }
 }
+
+imageListBtnEl.addEventListener('click', function(){
+    imageListEL.style.display = 'flex';
+    collectionListEL.style.display = 'none';
+    taggedListEL.style.display = 'none';
+});
+
+collectionListBtnEl.addEventListener('click', function(){
+    imageListEL.style.display = 'none';
+    collectionListEL.style.display = 'flex';
+    taggedListEL.style.display = 'none';
+});
+
+taggedListBtnEl.addEventListener('click', function(){
+    imageListEL.style.display = 'none';
+    collectionListEL.style.display = 'none';
+    taggedListEL.style.display = 'flex';
+});
+
+createImgList();
+createCollectionList();
+createTaggedList();
+
+
