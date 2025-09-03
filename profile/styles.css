@@ -146,3 +146,11 @@
     display: none;
     gap: 0.5em;
 }
+
+.switch-buttons:hover{
+    cursor: pointer;
+}
+
+.switch-buttons:active{
+    opacity: 0.5;
+}
