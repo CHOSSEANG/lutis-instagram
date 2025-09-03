@@ -103,8 +103,10 @@
 
 #image-handler{
     display:flex;
-    width:80%;
+    width:60%;
+    margin-left: 7em;
     justify-content: center;
+    border-bottom: 1.5px solid lightgray;
 }
 
 #image-handler > img{
@@ -115,13 +117,24 @@
     justify-content:space-evenly;
 }
 
-/*  */
+#image-container {
+    display:flex;
+    flex-direction: column;
+}
+
+#list-container {
+    justify-content: center;
+    margin-left: 7em;
+}
+
 #image-list {
     display:flex;
+    gap: 0.5em;
 }
 
 #collection-list {
-    display: flex;
+    display: none;
+    gap: 0.5em;
 }
 
 .collection-all-img {
@@ -130,5 +143,6 @@
 }
 
 #tagged-list {
-    display: flex;
+    display: none;
+    gap: 0.5em;
 }
