@@ -6,19 +6,15 @@
     <title>Main</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#sidebar").load("../sidebar.html");
+        });
+    </script>
 </head>
 <body>
-    <div id="sidebar">
-        <div class="main-icon">
-            Instagram
-        </div>
-        <div class="menu-list" style="display:flex; flex-direction:column;">
-            <p>메인</p>
-            <p>탐색</p>
-            <p>메세지</p>
-            <p>프로필</p>
-        </div>
-    </div>
+    <div id="sidebar"></div>
     <div id="profile-content">
         <div id="profile-header">
             <img id="profile-image" src="https://picsum.photos/100/100">
