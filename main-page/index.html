@@ -8,8 +8,33 @@
     <link rel="stylesheet" type="text/css" href="styles/header.css" />
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <link rel="stylesheet" type="text/css" href="styles/side.css" />
+    <script src="//code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#sidebar").load("../sidebar.html");
+        });
+    </script>
   </head>
   <body>
+    <div id="sidebar"></div>
+    <script>
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if(includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function(){
+                        if(this.readyState==4&&this.status==200){
+                            el.outerHTML=this.responseText;
+                        }
+                    };
+                    xhttp.open('GET',includePath,true);
+                    xhttp.send();
+                }
+            });
+        });
+    </script>
     <header class="header">
       <nav class="header__content">
         <div class="header__buttons">
