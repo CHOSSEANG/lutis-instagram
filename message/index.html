@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="sidebar">
+        <div class="main-icon">
+            Instagram
+        </div>
+        <div class="menu-list" style="display:flex; flex-direction:column;">
+            <p>메인</p>
+            <p>탐색</p>
+            <p>메세지</p>
+            <p>프로필</p>
+        </div>
+    </div>
+    <div id="message">
+        <div id="message-sidebar">
+            <div id="current-account">
+                <p>Instagram ID</p>
+                <div id="search-box">
+                    <span class="material-icons">search</span>
+                    <input id="search-input" placeholder="검색">
+                </div>
+            </div>
+            <div id="memos">
+                <div id="memo">
+                    <Img id="my-image" src="https://picsum.photos/50/50/?random=0">
+                    <p>내 메모</p>
+                </div>
+            </div>
+            <p id="message-list-header">메시지</p>
+            <div id="message-list">
+                <div id="message-oneline"></div>
+            </div>
+        </div>
+        <div id="message-content">
+            <div id="message-content-header"></div>
+            <div id="message-content-body"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
