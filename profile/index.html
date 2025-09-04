@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="sidebar">
+        <div class="main-icon">
+            Instagram
+        </div>
+        <div class="menu-list" style="display:flex; flex-direction:column;">
+            <p>메인</p>
+            <p>탐색</p>
+            <p>메세지</p>
+            <p>프로필</p>
+        </div>
+    </div>
+    <div id="profile-content">
+        <div id="profile-header">
+            <img id="profile-image" src="https://picsum.photos/100/100">
+            <div id="content-container">
+                <div id="id-container">
+                    <p>Instagram ID</p>
+                    <button>프로필 편집</button>
+                    <button>보관된 스토리 보기</button>
+                    <span class="material-icons">settings</span>
+                </div>
+                <div id="follower-container">
+                    <h5>게시물</h5>
+                    <p>2</p>
+                    <h5>팔로워</h5>
+                    <p>2</p>
+                    <h5>팔로우</h5>
+                    <p>2</p>
+                </div>
+                <div id="name">
+                    <p>Instagram Name</p>
+                </div>
+            </div>
+        </div>
+        <div id="highlight-list">
+            <div class="highlight-content">
+                <img src="./icons/add_circle.svg" class="highlight-image">
+                <p>신규</p>
+            </div>
+            <div class="highlight-content">
+                <img src="https://picsum.photos/60/60" class="highlight-image">
+                <p>유저</p>
+            </div>
+        </div>
+        <div id="image-container">
+            <div id="image-handler">
+                <img id="image-list-button" src="./icons/grid_on_BLACK.svg" class="switch-buttons">
+                <img id="collection-list-button" src="./icons/bookmark_BLACK.svg" class="switch-buttons">
+                <img id="tagged-list-button" src="./icons/assignment_BLACK.svg" class="switch-buttons">
+            </div>
+            <div id="list-container">
+                <div id="image-list"></div>
+                <div id="collection-list"></div>
+                <div id="tagged-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
