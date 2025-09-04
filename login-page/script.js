@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (username === 'lutis' && password === 'goormlutis') {
             alert('로그인 성공!');
             // 여기에 메인 페이지로 가는 url 작성 필요!
+            window.location.href = '../main-page/index.html';
         } else {
             alert('아이디 또는 비밀번호가 올바르지 않습니다.');
         }
