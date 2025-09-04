@@ -1,0 +1,155 @@
+#sidebar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 10em;
+    height: 100%;
+    border: 1px solid lightgray;
+}
+
+.main-icon{
+    margin-top: 30px;
+    margin-left:20px;
+    margin-bottom: 30px;
+}
+
+.menu-list {
+    margin-left: 20px;
+}
+
+#profile-content{
+    position:relative;
+    left:20em;
+}
+
+#profile-header{
+    display:flex;
+    height:12em;
+}
+
+#content-container{
+    display:flex;
+    flex-direction: column;
+}
+
+#profile-image{
+    width:150px;
+    height:150px;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    margin:1em;
+}
+
+#content-container > div{
+    display:flex;
+    vertical-align: middle;
+}
+
+#content-container > div > button{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    margin-top:0.7em;
+    height:fit-content;
+    padding: 0.5em 0.7em;
+    border: 1px solid #F0F0F0;
+    background-color: #F0F0F0;
+    border-radius: 10%;
+    font-weight: 600;
+}
+#content-container > div > p {
+    font-weight: bold;
+}
+#content-container > div > span {
+    margin-top:0.5em;
+}
+
+#follower-container {
+    display:flex;
+}
+
+#follower-container > h5{
+    color:#999999;
+    margin-right: 0.5em;
+}
+
+#follower-container > p{
+    margin-top: 1.3em;
+    margin-right: 4em;
+}
+
+#content-container > div:nth-child(2),
+#content-container> div:nth-child(3){
+    display: flex;
+}
+
+#highlight-list{
+    display:flex;
+}
+
+.highlight-image {
+    width: 6em;
+    height: 6em;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    margin: 1em 1em 0em 1em; 
+}
+
+.highlight-content{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+
+#image-handler{
+    display:flex;
+    width:60%;
+    justify-content: center;
+    margin-top:3em;
+    border-bottom: 1.5px solid lightgray;
+}
+
+#image-handler > img{
+    margin: 0em 5em;
+    width:2.5em;
+    border-bottom: 1px solid lightgray;
+    color:#000000;
+    justify-content:space-evenly;
+}
+
+#image-container {
+    display:flex;
+    flex-direction: column;
+}
+
+#list-container {
+    justify-content: center;
+}
+
+#image-list {
+    display:flex;
+    gap: 0.5em;
+}
+
+#collection-list {
+    display: none;
+    gap: 0.5em;
+}
+
+.collection-all-img {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#tagged-list {
+    display: none;
+    gap: 0.5em;
+}
+
+.switch-buttons:hover{
+    cursor: pointer;
+}
+
+.switch-buttons:active{
+    opacity: 0.5;
+}
