@@ -1,0 +1,365 @@
+
+
+#sidebar{
+    /* background-color: blanchedalmond; */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 10em;
+    height: 100%;
+    border: 1px solid lightgray;
+}
+
+.main-icon{
+    margin-top: 30px;
+    margin-left:20px;
+    margin-bottom: 30px;
+}
+
+.menu-list {
+    margin-left: 20px;
+}
+
+
+main {
+    margin-left: 10em;
+    /* background-color: aqua; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.Explore{
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 0.5px;
+    /* background-color: beige; */
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: 320px 320px 320px;
+    grid-template-rows: 320px 320px ;
+    justify-content: center;
+    
+}
+.Explore-padding{
+    height: 2.5em;
+    /* background-color: azure; */
+}
+
+/*
+.Explore-item:nth-child(2n){
+    background-image: url(https://picsum.photos/320/320?random=1
+);
+
+}
+.Explore-item:nth-child(2n+1){
+    background-image: url(https://picsum.photos/320/320?random=2
+);
+
+}
+*/
+
+
+.Explore-item{
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow:hidden;
+
+}
+.Explore-item::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.0);
+}
+.Explore-item:hover::after{
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1;
+}
+.Explore-item:hover .overlay {
+    display: flex;
+}
+
+/* hover 효과 무시 */
+.Explore-item.no-overlay:hover .overlay {
+    display: none;
+}
+
+
+.icon{
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+}
+
+.overlay{
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    z-index: 2;
+}
+
+
+.modal{
+    
+    display: none;
+    position: fixed;
+
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    background-color: rgba(0,0,0,0.4);
+
+
+}
+.is-open{
+    display: grid;
+    z-index: 9999;
+}
+/*모달 창 열릴 때 휠 방지*/
+body:has(#postModal.is-open) {
+  overflow: hidden;
+}
+.modalCloseBtnBox{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 8px 8px 8px 8px;
+    border: none;
+
+}
+
+
+.modalBox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+}
+.modalMedia{
+    width: 30%;
+    height: 100%;
+    background-color: black;
+}
+.modalContent{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    font-size: 16px;
+}
+.modalContent > .modalComent {
+    width: 100%;
+    height: 25%;
+    background-color: white;
+}
+.content{
+    height: 78%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.interaction{
+    height: 22%;
+    flex-direction: column;
+}
+.introduce{
+    background-color: white;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+}
+
+.introduce-icon{
+    width: 14%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.introduce-text{
+    width: 78%;
+    display: flex;
+    padding: 15px 10px 10px 5px;
+    font-weight: bold;
+
+}
+.option-logo{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.option-logo img{
+    cursor: pointer;
+}
+
+.profile{
+    width: 60%;
+    height: 55%;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    
+}
+
+.follow-bt{
+    cursor: pointer;
+    color: #2536d0;
+}
+
+.modalComent{
+    display: flex;
+}
+
+.modalReact{
+    height: 32%;
+    display: flex;
+    align-items: center;
+}
+.modalLike{
+    height: 20%;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 14px;
+}
+.modalChat{
+    height: 35%;
+    display: flex;
+    align-items: center;
+    border-top: 0.08px solid rgb(219,219,219);
+}
+.modalReact .heart{
+    margin-left: 5px;
+}
+.modalReact img{
+    width:  24px;
+    height: 24px;
+    object-fit: contain;
+    padding: 5px 5px 5px 5px;
+    cursor: pointer;
+}
+.save{
+    margin-left: auto;
+    padding: 5px 5px 5px 5px;
+    cursor: pointer;
+}
+.iconBox{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0px;
+} 
+.chatting{
+    width: 80%;
+}
+.chatting-bt-box{
+    width: 10%;
+}
+.chatting-bt-box > button{
+    border: none;
+    background: white;
+    color: #2536d0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.iconBox img{
+    cursor: pointer;
+    width:  36px;
+    height: 36px;
+}
+
+.chatting{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chatting input{
+    width: 95%;
+    height: 60%;
+    border: none;    
+    font-size: 18px;
+}
+.chatting input:focus{
+    border: none;
+    outline: none;
+}
+
+.chatting input::placeholder{
+    color: grey;
+    font-size: 18px;
+}
+.commentBox{
+    border-top: 0.08px solid rgb(239,239,239);
+    border-bottom: 0.08px solid rgb(239,239,239);
+    background-color: white;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    overflow: hidden;
+    flex: 1;                    /* 부모가 flex 컨테이너일 때 남는 세로공간을 전부 차지 */
+    overflow-y: auto;           /* 세로로 내용 넘치면 이 박스만 스크롤 생김 */    
+}
+/*스크롤바 안보이게*/
+.commentBox::-webkit-scrollbar { /* Chrome/Safari/Edge(Chromium) */
+  display: none;
+}
+.user-box{
+}
+.user-caption{
+    width: 85%;
+    padding: 16px;
+}
+.user-post{
+    display: flex;
+    flex-direction: row;
+}
+.user-post img{
+    width: 8%;
+    height: 8%;
+    padding: 10px;
+}
+.nickName{
+    cursor: pointer;
+    font-weight: bold;
+}
+.comment-text{
+  white-space: pre-wrap;
+}
+.user-image{
+    border-radius: 50%;
+}
