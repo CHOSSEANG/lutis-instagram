@@ -1,26 +1,4 @@
 
-
-#sidebar{
-    /* background-color: blanchedalmond; */
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 10em;
-    height: 100%;
-    border: 1px solid lightgray;
-}
-
-.main-icon{
-    margin-top: 30px;
-    margin-left:20px;
-    margin-bottom: 30px;
-}
-
-.menu-list {
-    margin-left: 20px;
-}
-
-
 main {
     margin-left: 10em;
     /* background-color: aqua; */
