@@ -99,6 +99,10 @@
     margin-bottom: 1em;
 }
 
+.message-box:hover{
+    cursor:pointer;
+}
+
 .message-box-text{
     display:flex;
     flex-direction: column;
